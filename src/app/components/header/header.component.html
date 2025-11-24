@@ -1,0 +1,36 @@
+<header class="bg-gray-900 text-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <!-- Logo -->
+        <a routerLink="/" class="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+            <span class="text-2xl font-bold text-red-600">AUTOCARE</span>
+            <span class="text-xl font-semibold">TOWING</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex gap-6">
+            <a routerLink="/" class="hover:text-red-500 transition-colors">Home</a>
+            <a routerLink="/about" class="hover:text-red-500 transition-colors">About Us</a>
+            <a routerLink="/services" class="hover:text-red-500 transition-colors">Services</a>
+            <a routerLink="/gallery" class="hover:text-red-500 transition-colors">Gallery</a>
+            <a routerLink="/contact" class="hover:text-red-500 transition-colors">Contact</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button (click)="toggleMenu()" class="md:hidden focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    @if (isMenuOpen) {
+    <nav class="md:hidden bg-gray-800 px-4 py-2 flex flex-col gap-2">
+        <a routerLink="/" (click)="toggleMenu()" class="block py-2 hover:text-red-500">Home</a>
+        <a routerLink="/about" (click)="toggleMenu()" class="block py-2 hover:text-red-500">About Us</a>
+        <a routerLink="/services" (click)="toggleMenu()" class="block py-2 hover:text-red-500">Services</a>
+        <a routerLink="/gallery" (click)="toggleMenu()" class="block py-2 hover:text-red-500">Gallery</a>
+        <a routerLink="/contact" (click)="toggleMenu()" class="block py-2 hover:text-red-500">Contact</a>
+    </nav>
+    }
+</header>

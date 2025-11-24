@@ -1,0 +1,45 @@
+<div class="bg-gray-900 text-white min-h-screen py-12">
+    <div class="container mx-auto px-4">
+        <!-- Page Header -->
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Gallery</h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                See our fleet in action - tow trucks and flatbed vehicles serving our community
+            </p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
+            @for (image of images; track image.id) {
+            <div class="group relative bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-red-600 transition-all duration-300 hover:scale-105 cursor-pointer"
+                (click)="openLightbox(image)">
+                <!-- Image -->
+                <div class="aspect-square overflow-hidden">
+                    <img [src]="image.url" [alt]="image.caption"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                </div>
+
+                <!-- Caption Overlay -->
+                <div
+                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <p class="text-sm font-semibold">{{ image.caption }}</p>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox Modal -->
+@if (selectedImage) {
+<div class="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4" (click)="closeLightbox()">
+    <button
+        class="absolute top-4 right-4 text-white hover:text-red-500 transition-colors text-4xl font-bold leading-none">
+        ×
+    </button>
+    <div class="max-w-6xl max-h-full" (click)="$event.stopPropagation()">
+        <img [src]="selectedImage.url" [alt]="selectedImage.caption" class="max-w-full max-h-[90vh] object-contain">
+        <p class="text-white text-center mt-4 text-lg">{{ selectedImage.caption }}</p>
+    </div>
+</div>
+}

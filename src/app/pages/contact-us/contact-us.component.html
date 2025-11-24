@@ -1,0 +1,93 @@
+<div class="bg-gray-900 text-white min-h-screen py-12">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">We are here to help 24/7. Reach out to us for any
+                inquiries or emergency services.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Contact Info -->
+            <div class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700">
+                <h2 class="text-2xl font-bold mb-8 text-red-600">Get in Touch</h2>
+
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-red-600/20 p-3 rounded-lg text-red-600">
+                            <span class="text-2xl">📍</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Our Location</h3>
+                            <p class="text-gray-400">123 Towing Lane, Cityville, ST 12345</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="bg-red-600/20 p-3 rounded-lg text-red-600">
+                            <span class="text-2xl">📞</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Phone Number</h3>
+                            <p class="text-gray-400 mb-1">Emergency: <a href="tel:5551234567"
+                                    class="text-white hover:text-red-500 font-bold">(555) 123-4567</a></p>
+                            <p class="text-gray-400">Office: (555) 987-6543</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="bg-red-600/20 p-3 rounded-lg text-red-600">
+                            <span class="text-2xl">✉️</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Email Address</h3>
+                            <p class="text-gray-400">info&#64;autocaretowing.com</p>
+                            <p class="text-gray-400">support&#64;autocaretowing.com</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="bg-red-600/20 p-3 rounded-lg text-red-600">
+                            <span class="text-2xl">⏰</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Working Hours</h3>
+                            <p class="text-gray-400">Monday - Sunday: 24 Hours</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700">
+                <h2 class="text-2xl font-bold mb-8 text-red-600">Send a Message</h2>
+                <form (submit)="onSubmit($event)" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Full Name</label>
+                        <input type="text"
+                            class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600 transition-colors"
+                            placeholder="John Doe">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                        <input type="email"
+                            class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600 transition-colors"
+                            placeholder="john@example.com">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                        <textarea rows="4"
+                            class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600 transition-colors"
+                            placeholder="How can we help you?"></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-lg transition-colors">
+                        SEND MESSAGE
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

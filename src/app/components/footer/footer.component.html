@@ -1,0 +1,59 @@
+<footer class="bg-gray-900 text-white pt-12 pb-8">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <!-- Brand & About -->
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-2xl font-bold text-red-600">AUTOCARE</span>
+                    <span class="text-xl font-semibold">TOWING</span>
+                </div>
+                <p class="text-gray-400 mb-4">
+                    Professional towing and breakdown services available 24/7. We are committed to getting you back on
+                    the road safely and quickly.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-lg font-bold mb-4 border-b-2 border-red-600 inline-block">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a routerLink="/" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                    <li><a routerLink="/services" class="text-gray-400 hover:text-white transition-colors">Services</a>
+                    </li>
+                    <li><a routerLink="/about" class="text-gray-400 hover:text-white transition-colors">About Us</a>
+                    </li>
+                    <li><a routerLink="/contact" class="text-gray-400 hover:text-white transition-colors">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h3 class="text-lg font-bold mb-4 border-b-2 border-red-600 inline-block">Contact Us</h3>
+                <ul class="space-y-4 text-gray-400">
+                    <li class="flex items-center gap-3">
+                        <span class="text-red-600">📍</span>
+                        <span>123 Towing Lane, Cityville, ST 12345</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-red-600">📞</span>
+                        <a href="tel:5551234567" class="hover:text-white">(555) 123-4567</a>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-red-600">✉️</span>
+                        <a href="mailto:info@autocaretowing.com"
+                            class="hover:text-white">info&#64;autocaretowing.com</a>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-red-600">⏰</span>
+                        <span>Available 24/7</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+            <p>&copy; {{ currentYear }} Autocare Towing. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,5 @@
+<app-layout>
+  <div [@fadeAnimation]="outlet.isActivated ? outlet.activatedRoute : ''">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
+</app-layout>

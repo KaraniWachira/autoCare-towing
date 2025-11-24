@@ -1,0 +1,39 @@
+<div class="bg-gray-900 text-white min-h-screen py-12">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Customer Reviews</h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">See what our satisfied customers have to say about our
+                towing and breakdown services.</p>
+        </div>
+
+        <!-- Reviews Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            @for (review of reviews; track review.id) {
+            <div
+                class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700 hover:border-red-600 transition-colors">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-xl font-bold">
+                        {{ review.name.charAt(0) }}
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">{{ review.name }}</h3>
+                        <div class="flex text-yellow-400">
+                            @for (star of [1,2,3,4,5]; track star) {
+                            <span>★</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-300 italic">"{{ review.text }}"</p>
+                <div class="mt-4 text-sm text-gray-500">{{ review.date }}</div>
+            </div>
+            }
+        </div>
+
+        <!-- Section Divider -->
+        <div class="py-8">
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-50"></div>
+        </div>
+
+    </div>
+</div>
