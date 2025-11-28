@@ -1,32 +1,78 @@
 <div class="bg-gray-900 text-white min-h-screen py-12">
     <div class="container mx-auto px-4">
         <!-- Page Header -->
-        <div class="text-center mb-16">
+        <div class="text-center mb-8">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Gallery</h1>
             <p class="text-xl text-gray-400 max-w-2xl mx-auto">
                 See our fleet in action - tow trucks and flatbed vehicles serving our community
             </p>
         </div>
 
+        <!-- Category Filter -->
+        <div class="category-filter-container mb-8">
+            <div class="flex flex-wrap justify-center gap-3">
+                @for (category of categories; track category.id) {
+                <button (click)="filterByCategory(category.id)" [class.active]="selectedCategory === category.id"
+                    class="category-btn group">
+                    <span class="material-icons text-xl">{{ category.icon }}</span>
+                    <span class="font-semibold">{{ category.name }}</span>
+                </button>
+                }
+            </div>
+        </div>
+
+
+        <!-- Loading State -->
+        @if (isLoading) {
+        <app-loading-spinner message="Loading images from Cloudinary..."></app-loading-spinner>
+        }
+
+
+        <!-- Error State -->
+        @if (!isLoading && error) {
+        <div class="bg-red-900/20 border border-red-500 rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+            <div class="flex items-start gap-4">
+                <span class="material-icons text-red-500 text-3xl">error</span>
+                <div>
+                    <h3 class="text-xl font-bold text-red-500 mb-2">Error Loading Images</h3>
+                    <p class="text-gray-300">{{ error }}</p>
+                    <button (click)="loadImages()"
+                        class="mt-4 px-4 py-2 bg-red-500 hover:bg-red-600 rounded-lg transition-colors">
+                        Try Again
+                    </button>
+                </div>
+            </div>
+        </div>
+        }
+
         <!-- Gallery Grid -->
+        @if (!isLoading && !error && images.length === 0) {
+
+        <div class="empty-state">
+            <span class="material-icons">photo_library</span>
+            <p>No images found for this category.</p>
+            <p class="text-sm text-gray-400 mt-2">
+                Make sure your images in Cloudinary are tagged with the appropriate category tag.
+            </p>
+        </div>
+        } @else if (!isLoading && !error) {
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
             @for (image of images; track image.id) {
-            <div class="group relative bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-red-600 transition-all duration-300 hover:scale-105 cursor-pointer"
-                (click)="openLightbox(image)">
+            <div class="gallery-card group">
                 <!-- Image -->
-                <div class="aspect-square overflow-hidden">
+                <div class="aspect-square overflow-hidden" (click)="openLightbox(image)">
                     <img [src]="image.url" [alt]="image.caption"
-                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer">
                 </div>
 
-                <!-- Caption Overlay -->
-                <div
-                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <!-- Caption -->
+                <div class="caption-container">
                     <p class="text-sm font-semibold">{{ image.caption }}</p>
                 </div>
             </div>
             }
         </div>
+        }
     </div>
 </div>
 
