@@ -26,7 +26,7 @@ export class GalleryComponent implements OnInit {
     // Category filtering
     categories = [
         { id: 'all', name: 'All Vehicles', icon: 'apps' },
-        { id: 'saloon-cars', name: 'Saloon Cars', icon: 'directions_car' },
+        { id: 'saloon', name: 'Saloon Cars', icon: 'directions_car' },
         { id: 'suvs', name: 'SUVs', icon: 'airport_shuttle' },
         { id: 'heavy-machinery', name: 'Heavy Machinery', icon: 'local_shipping' },
         { id: 'others', name: 'Others', icon: 'category' }

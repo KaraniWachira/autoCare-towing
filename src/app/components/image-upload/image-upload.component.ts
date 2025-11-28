@@ -19,7 +19,7 @@ export class ImageUploadComponent {
     selectedCategory = 'others';  // Default category
 
     categories = [
-        { id: 'saloon-cars', name: 'Saloon Cars' },
+        { id: 'saloon', name: 'Saloon Cars' },
         { id: 'suvs', name: 'SUVs' },
         { id: 'heavy-machinery', name: 'Heavy Machinery' },
         { id: 'others', name: 'Others' }
