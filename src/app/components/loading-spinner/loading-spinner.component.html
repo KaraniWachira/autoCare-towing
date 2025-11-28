@@ -1,0 +1,6 @@
+<div class="loading-spinner-container flex flex-col items-center justify-center py-16">
+    <div [class]="spinnerSizeClass + ' animate-spin rounded-full border-t-4 border-b-4 border-red-500 mb-4'"></div>
+    @if (message) {
+    <p class="text-gray-400 text-lg">{{ message }}</p>
+    }
+</div>

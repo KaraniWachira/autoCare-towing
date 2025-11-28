@@ -3,3 +3,10 @@
     <router-outlet #outlet="outlet"></router-outlet>
   </div>
 </app-layout>
+
+<!-- Global Loading Overlay for Route Transitions -->
+@if (loadingService.loading$ | async) {
+<div class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center">
+  <app-loading-spinner size="lg" message="Loading page..."></app-loading-spinner>
+</div>
+}

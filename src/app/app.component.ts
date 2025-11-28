@@ -1,16 +1,39 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterOutlet, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './components/layout/layout.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { LoadingService } from './services/loading.service';
 import { fadeAnimation } from './animations/route-animations';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LayoutComponent],
+  imports: [RouterOutlet, CommonModule, LayoutComponent, LoadingSpinnerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   animations: [fadeAnimation]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'autocare-towing';
+
+  constructor(
+    private router: Router,
+    public loadingService: LoadingService
+  ) { }
+
+  ngOnInit(): void {
+    // Listen to router events to show/hide loading spinner
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.loadingService.show();
+      } else if (
+        event instanceof NavigationEnd ||
+        event instanceof NavigationCancel ||
+        event instanceof NavigationError
+      ) {
+        this.loadingService.hide();
+      }
+    });
+  }
 }
