@@ -12,6 +12,7 @@ export const environment = {
         folder: 'towing-gallery',
         baseTag: 'autocare-towing',  // Base tag for all images
         categoryTags: {
+            'all': 'autocare-towing',  // Base tag to fetch all images
             'saloon': 'saloon',
             'suvs': 'suvs',
             'heavy-machinery': 'heavy-machinery',

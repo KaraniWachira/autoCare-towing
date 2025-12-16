@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ServiceRequestStore } from '../../stores/service-request.store';
+import { CloudinaryService } from '../../services/cloudinary.service';
 
 @Component({
   selector: 'app-home',
@@ -30,14 +31,26 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private fb = inject(FormBuilder);
   readonly store = inject(ServiceRequestStore);
+  private cloudinaryService = inject(CloudinaryService);
   private sliderInterval: any;
 
-  // Hero slider images
-  heroImages = [
-    'https://images.unsplash.com/photo-1615900119312-2acd3a71f3aa?q=80&w=1920&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?q=80&w=1920&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1920&auto=format&fit=crop'
+  // Hero slider images - Public IDs extracted from Cloudinary
+  // Format: just the file name without the full URL
+  heroImagePublicIds = [
+    'Multi-Vehicle_Carrier',  // First hero image
+    'Heavy_Duty_Machinery_Towing',  // Second hero image
+    'Classic_Car_Transport'   // Third hero image
   ];
+
+  // Generate optimized Cloudinary URLs for hero images
+  heroImages = this.heroImagePublicIds.map(publicId =>
+    this.cloudinaryService.getOptimizedUrl(publicId, 1920)
+  );
+
+  // Request Service section background image from Cloudinary
+  // Replace 'your-image-name' with the actual public ID of your desired background image
+  requestServiceBgImage = this.cloudinaryService.getOptimizedUrl('Salvage_Vehicle_Towing', 1920);
+
   currentHeroIndex = 0;
 
   requestForm = this.fb.group({

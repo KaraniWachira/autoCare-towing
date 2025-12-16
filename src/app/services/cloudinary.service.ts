@@ -178,12 +178,7 @@ export class CloudinaryService {
      * @returns Promise with array of CloudinaryImage objects
      */
     async fetchImagesByCategory(category: string): Promise<CloudinaryImage[]> {
-        // If 'all', fetch using base tag to get all images
-        if (category === 'all') {
-            return this.fetchImagesFromCloudinary(environment.cloudinary.baseTag);
-        }
-
-        // Otherwise, fetch using the specific category tag
+        // Get the tag from categoryTags mapping
         const categoryTag = environment.cloudinary.categoryTags[category as keyof typeof environment.cloudinary.categoryTags];
 
         if (!categoryTag) {

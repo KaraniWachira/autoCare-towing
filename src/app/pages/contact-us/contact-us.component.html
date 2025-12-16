@@ -82,9 +82,10 @@
                             placeholder="How can we help you?"></textarea>
                     </div>
 
-                    <button type="submit"
-                        class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-lg transition-colors">
-                        SEND MESSAGE
+                    <button type="submit" [disabled]="isSubmitting"
+                        class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                        <app-loading-spinner *ngIf="isSubmitting"></app-loading-spinner>
+                        <span>{{ isSubmitting ? 'SENDING...' : 'SEND MESSAGE' }}</span>
                     </button>
                 </form>
             </div>
