@@ -10,7 +10,7 @@ describe('FleetComponent', () => {
     await TestBed.configureTestingModule({
       imports: [FleetComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(FleetComponent);
     component = fixture.componentInstance;
@@ -19,5 +19,10 @@ describe('FleetComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render fleet content', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')?.textContent).toContain('Our Fleet');
   });
 });
