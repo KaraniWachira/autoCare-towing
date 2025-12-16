@@ -1,7 +1,7 @@
 <div class="bg-gray-900 text-white min-h-screen">
     <!-- Hero -->
     <section class="relative h-[400px] flex items-center justify-center bg-cover bg-center"
-        style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1562426509-5044a121aa49?q=80&w=1920&auto=format&fit=crop');">
+        [style.background-image]="'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(' + heroBackgroundImage + ')'">
         <div class="text-center px-4">
             <h1 class="text-5xl font-bold mb-4">Our Story</h1>
             <p class="text-xl text-gray-300 max-w-2xl mx-auto">Serving our community with pride and professionalism for
@@ -37,8 +37,8 @@
             </div>
             <div class="relative">
                 <div class="absolute -inset-4 bg-red-600/20 rounded-xl blur-lg"></div>
-                <img src="https://images.unsplash.com/photo-1597589928539-333d1964296c?q=80&w=1000&auto=format&fit=crop"
-                    alt="Tow Truck Fleet" class="relative rounded-xl shadow-2xl w-full h-auto object-cover">
+                <img [src]="storyImage" alt="Tow Truck Fleet"
+                    class="relative rounded-xl shadow-2xl w-full h-auto object-cover">
             </div>
         </div>
     </section>
@@ -58,8 +58,7 @@
                 <div
                     class="bg-gray-900 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-red-600 transition-colors group">
                     <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1605218427368-35b08968e22a?q=80&w=800&auto=format&fit=crop"
-                            alt="Flatbed Tow Truck"
+                        <img [src]="fleetImages.flatbed" alt="Flatbed Tow Truck"
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-6">
@@ -87,8 +86,7 @@
                 <div
                     class="bg-gray-900 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-red-600 transition-colors group">
                     <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?q=80&w=800&auto=format&fit=crop"
-                            alt="Wheel Lift Truck"
+                        <img [src]="fleetImages.wrecker" alt="Wheel Lift Truck"
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-6">
@@ -116,8 +114,7 @@
                 <div
                     class="bg-gray-900 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-red-600 transition-colors group">
                     <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=800&auto=format&fit=crop"
-                            alt="Heavy Duty Rotator"
+                        <img [src]="fleetImages.rotator" alt="Heavy Duty Rotator"
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-6">
