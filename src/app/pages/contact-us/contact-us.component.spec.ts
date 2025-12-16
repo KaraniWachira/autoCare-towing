@@ -10,7 +10,7 @@ describe('ContactUsComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ContactUsComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ContactUsComponent);
     component = fixture.componentInstance;
@@ -19,5 +19,10 @@ describe('ContactUsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render contact us content', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')?.textContent).toContain('Contact Us');
   });
 });

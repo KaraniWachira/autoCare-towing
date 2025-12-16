@@ -10,7 +10,7 @@ describe('TestimonialsComponent', () => {
     await TestBed.configureTestingModule({
       imports: [TestimonialsComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(TestimonialsComponent);
     component = fixture.componentInstance;
@@ -19,5 +19,10 @@ describe('TestimonialsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render testimonials content', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')?.textContent).toContain('Customer Reviews');
   });
 });

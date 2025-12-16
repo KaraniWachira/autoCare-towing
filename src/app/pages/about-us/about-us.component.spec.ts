@@ -10,7 +10,7 @@ describe('AboutUsComponent', () => {
     await TestBed.configureTestingModule({
       imports: [AboutUsComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(AboutUsComponent);
     component = fixture.componentInstance;
@@ -19,5 +19,10 @@ describe('AboutUsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render about us content', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')?.textContent).toContain('Our Story');
   });
 });

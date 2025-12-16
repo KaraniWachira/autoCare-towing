@@ -14,7 +14,7 @@
                 <span class="text-red-600">FAST.</span> RELIABLE. <span class="text-red-600">SAFE.</span>
             </h1>
             <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-2xl mx-auto">
-                Professional towing and breakdown services available 24/7. We get you back on the road.
+                Professional flatbed towing services available 24/7.
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
                 <a routerLink="/request-service"
@@ -82,9 +82,11 @@
             <div
                 class="bg-gray-800 rounded-xl p-8 hover:bg-gray-750 transition-colors border border-gray-700 hover:border-red-600 group">
                 <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">🔧</div>
-                <h3 class="text-2xl font-bold mb-4">Breakdown Services</h3>
-                <p class="text-gray-400">24/7 roadside assistance including jump starts, tire changes, fuel delivery,
-                    and lockout services.</p>
+                <h3 class="text-2xl font-bold mb-4">Specialized Logistics & Equipment Transport</h3>
+                <p class="text-gray-400">
+                    Handling high-value, sensitive, and non-standard cargo that requires
+                    precision, stabilization, and damage-free flatbed delivery transport.
+                </p>
             </div>
         </div>
     </section>
@@ -101,76 +103,46 @@
         </div>
     </section>
 
-    <!-- Request Service Form Section -->
-    <section class="py-16 px-4 bg-cover bg-center relative"
-        [style.background-image]="'linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url(' + requestServiceBgImage + ')'">
-        <div class="max-w-2xl mx-auto bg-gray-900 rounded-xl shadow-2xl overflow-hidden border border-gray-700">
-            <div class="bg-red-600 p-6 text-center">
-                <h2 class="text-3xl font-bold text-white">Request Service Now</h2>
-                <p class="text-white/90 mt-2">Fill out the form below and we'll be there shortly.</p>
+    <!-- Our Work Video Section -->
+    <section class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4"><span class="border-b-4 border-red-600 pb-2">SEE OUR
+                        WORK</span></h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">Watch our professional flatbed towing services in
+                    action</p>
             </div>
 
-            <form [formGroup]="requestForm" (ngSubmit)="onSubmit()" class="p-8 space-y-6">
-                <!-- Contact Info -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <mat-form-field appearance="outline" class="w-full">
-                        <mat-label>Full Name</mat-label>
-                        <input matInput formControlName="name" placeholder="John Doe">
-                        <mat-error *ngIf="requestForm.get('name')?.hasError('required')">Name is required</mat-error>
-                    </mat-form-field>
-
-                    <mat-form-field appearance="outline" class="w-full">
-                        <mat-label>Phone Number</mat-label>
-                        <input matInput formControlName="phone" placeholder="(555) 123-4567">
-                        <mat-error *ngIf="requestForm.get('phone')?.hasError('required')">Phone is required</mat-error>
-                    </mat-form-field>
-                </div>
-
-                <!-- Vehicle Info -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <mat-form-field appearance="outline" class="w-full">
-                        <mat-label>Vehicle Make</mat-label>
-                        <input matInput formControlName="vehicleMake" placeholder="Toyota">
-                    </mat-form-field>
-
-                    <mat-form-field appearance="outline" class="w-full">
-                        <mat-label>Vehicle Model</mat-label>
-                        <input matInput formControlName="vehicleModel" placeholder="Camry">
-                    </mat-form-field>
-                </div>
-
-                <!-- Service Type -->
-                <mat-form-field appearance="outline" class="w-full">
-                    <mat-label>Service Type</mat-label>
-                    <mat-select formControlName="serviceType">
-                        <mat-option value="towing">Towing</mat-option>
-                        <mat-option value="flat_tire">Flat Tire</mat-option>
-                        <mat-option value="battery">Battery Jump</mat-option>
-                        <mat-option value="fuel">Fuel Delivery</mat-option>
-                        <mat-option value="lockout">Lockout</mat-option>
-                        <mat-option value="other">Other</mat-option>
-                    </mat-select>
-                </mat-form-field>
-
-                <!-- Location -->
-                <mat-form-field appearance="outline" class="w-full">
-                    <mat-label>Current Location</mat-label>
-                    <textarea matInput formControlName="location" rows="3"
-                        placeholder="123 Highway Rd, near Exit 5"></textarea>
-                    <mat-error *ngIf="requestForm.get('location')?.hasError('required')">Location is
-                        required</mat-error>
-                </mat-form-field>
-
-                <!-- Submit Button -->
-                <button mat-raised-button color="warn" type="submit" [disabled]="requestForm.invalid || store.loading()"
-                    class="w-full py-6 text-lg font-bold">
-                    @if (store.loading()) {
-                    <span>Submitting...</span>
-                    } @else {
-                    <span>SUBMIT REQUEST</span>
+            <!-- Video Showcase -->
+            <div class="max-w-4xl mx-auto">
+                @for (video of workVideos; track video.publicId) {
+                <div
+                    class="bg-gray-900 rounded-xl overflow-hidden shadow-xl border border-gray-700 hover:border-red-600 transition-all group">
+                    <div class="relative aspect-video bg-gray-700">
+                        <video [src]="video.url" class="w-full h-full object-cover" controls muted preload="metadata"
+                            [poster]="video.thumbnail">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    @if (video.title) {
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-white">{{ video.title }}</h3>
+                        @if (video.description) {
+                        <p class="text-gray-400 text-sm mt-2">{{ video.description }}</p>
+                        }
+                    </div>
                     }
-                </button>
-            </form>
+                </div>
+                }
+            </div>
+
+            <!-- Add CTA after videos -->
+            <div class="text-center mt-12">
+                <a routerLink="/contact"
+                    class="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-lg">
+                    REQUEST A SERVICE
+                </a>
+            </div>
         </div>
     </section>
 

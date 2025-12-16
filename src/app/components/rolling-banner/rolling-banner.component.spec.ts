@@ -10,7 +10,7 @@ describe('RollingBannerComponent', () => {
     await TestBed.configureTestingModule({
       imports: [RollingBannerComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(RollingBannerComponent);
     component = fixture.componentInstance;
@@ -19,5 +19,10 @@ describe('RollingBannerComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render banner', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.animate-marquee')).toBeTruthy();
   });
 });

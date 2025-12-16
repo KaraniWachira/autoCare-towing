@@ -1,13 +1,9 @@
 import { Component, inject, ViewChild, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button';
+
 import { MatIconModule } from '@angular/material/icon';
-import { ServiceRequestStore } from '../../stores/service-request.store';
+
 import { CloudinaryService } from '../../services/cloudinary.service';
 
 @Component({
@@ -16,11 +12,6 @@ import { CloudinaryService } from '../../services/cloudinary.service';
   imports: [
     RouterLink,
     CommonModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
     MatIconModule
   ],
   templateUrl: './home.component.html',
@@ -29,8 +20,7 @@ import { CloudinaryService } from '../../services/cloudinary.service';
 export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild('reviewsContainer') reviewsContainer!: ElementRef;
 
-  private fb = inject(FormBuilder);
-  readonly store = inject(ServiceRequestStore);
+
   private cloudinaryService = inject(CloudinaryService);
   private sliderInterval: any;
 
@@ -53,14 +43,17 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   currentHeroIndex = 0;
 
-  requestForm = this.fb.group({
-    name: ['', Validators.required],
-    phone: ['', Validators.required],
-    vehicleMake: ['', Validators.required],
-    vehicleModel: ['', Validators.required],
-    serviceType: ['', Validators.required],
-    location: ['', Validators.required]
-  });
+  // Work video from Cloudinary
+  // Replace 'your-video-public-id' with your actual Cloudinary video public ID
+  workVideos = [
+    {
+      publicId: 'your-video-public-id',  // Replace with your actual Cloudinary video public ID
+      url: this.cloudinaryService.getVideoUrl('v1765622610/video-auto-care.mp4'),
+      thumbnail: this.cloudinaryService.getOptimizedUrl('v1765622610/video-auto-care.mp4', 1280), // Video thumbnail
+      title: 'Our Professional Flatbed Towing Service',
+      description: 'Watch our team in action providing safe and reliable towing services'
+    }
+  ];
 
   reviews = [
     {
@@ -131,13 +124,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     return this.heroImages[this.currentHeroIndex];
   }
 
-  onSubmit() {
-    if (this.requestForm.valid) {
-      this.store.addRequest(this.requestForm.value);
-      this.requestForm.reset();
-      alert('Service request submitted successfully! We will contact you shortly.');
-    }
-  }
+
 
   scrollReviews(direction: 'left' | 'right') {
     const container = this.reviewsContainer.nativeElement;

@@ -10,7 +10,7 @@ describe('RequestServiceComponent', () => {
     await TestBed.configureTestingModule({
       imports: [RequestServiceComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(RequestServiceComponent);
     component = fixture.componentInstance;
@@ -19,5 +19,10 @@ describe('RequestServiceComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render request service content', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')?.textContent).toContain('Our Services');
   });
 });

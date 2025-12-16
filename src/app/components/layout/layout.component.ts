@@ -10,6 +10,5 @@ import { RollingBannerComponent } from '../rolling-banner/rolling-banner.compone
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })
-export class LayoutComponent {
+export class LayoutComponent { }
 
-}
