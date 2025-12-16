@@ -137,6 +137,19 @@ export class CloudinaryService {
     }
 
     /**
+     * Gets the video URL from Cloudinary
+     * @param publicId The public ID of the video
+     * @param quality Video quality (auto, best, good, eco). Default is 'auto'
+     * @returns Video URL
+     */
+    getVideoUrl(publicId: string, quality: string = 'auto'): string {
+        const baseUrl = `https://res.cloudinary.com/${environment.cloudinary.cloudName}/video/upload`;
+        const transformations = `q_${quality},f_auto`;
+
+        return `${baseUrl}/${transformations}/${publicId}`;
+    }
+
+    /**
      * Fetch images from Cloudinary using tag-based listing
      * Requires enabling "Resource list" in Cloudinary Security Settings
      * @param tag The tag to filter images by (default from environment)

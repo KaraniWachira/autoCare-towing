@@ -1,9 +1,16 @@
 <div class="bg-gray-900 text-white min-h-screen py-12">
+
+    <!-- Hero -->
+    <section class="relative h-[400px] flex items-center justify-center bg-cover bg-center"
+        [style.background-image]="'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(' + heroBackgroundImage + ')'">
+        <div class="text-center px-4">
+            <h1 class="text-5xl font-bold mb-4">Our Services</h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto">Professional flatbed towing and car hauling services
+                available 24/7 to get you back on the road safely</p>
+        </div>
+    </section>
     <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto">Professional towing and roadside assistance services
-                available 24/7 to get you back on the road safely.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -15,13 +22,13 @@
                 </div>
                 <div class="p-6">
                     <h3 class="text-2xl font-bold mb-2">Flatbed Towing</h3>
-                    <p class="text-gray-400 mb-4">Safe and secure transport with no-wheel-contact. Perfect for luxury
+                    <p class="text-gray-400 mb-4">Safe and secure transport. Perfect for luxury
                         vehicles, classic cars, and motorcycles. Our flatbed trucks ensure your vehicle arrives without
                         any wear or damage.</p>
                     <div class="space-y-2 text-sm">
                         <div class="flex items-center gap-2">
                             <span class="text-red-500">✓</span>
-                            <span>No-wheel-contact transport</span>
+                            <span>Garage or showroom transfer</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="text-red-500">✓</span>
@@ -43,7 +50,8 @@
                 </div>
                 <div class="p-6">
                     <h3 class="text-2xl font-bold mb-2">Car Hauling</h3>
-                    <p class="text-gray-400 mb-4">Professional vehicle transport for local and long-distance
+                    <p class="text-gray-400 mb-4">Professional vehicle transport for location-to-location and
+                        long-distance
                         relocations. We handle your vehicle with the utmost care from pickup to delivery.</p>
                     <div class="space-y-2 text-sm">
                         <div class="flex items-center gap-2">
@@ -62,32 +70,34 @@
                 </div>
             </div>
 
-            <!-- Service 3: Breakdown Services -->
+            <!-- Service 3: Specialized Transport Services -->
+
             <div
                 class="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-red-600 transition-colors group">
                 <div class="h-64 overflow-hidden bg-gray-700 flex items-center justify-center">
-                    <div class="text-9xl group-hover:scale-110 transition-transform duration-500">🔧</div>
+                    <div class="text-9xl group-hover:scale-110 transition-transform duration-500">🏗️</div>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-2xl font-bold mb-2">Breakdown Services</h3>
-                    <p class="text-gray-400 mb-4">24/7 roadside assistance including jump starts, tire changes, fuel
-                        delivery, and lockout services. Get back on the road quickly.</p>
+                    <h3 class="text-2xl font-bold mb-2">Specialized Logistics & Equipment Transport</h3>
+                    <p class="text-gray-400 mb-4">Handling high-value, sensitive, and non-standard cargo that requires
+                        precision, stabilization, and damage-free flatbed delivery across Nairobi.</p>
                     <div class="space-y-2 text-sm">
                         <div class="flex items-center gap-2">
                             <span class="text-red-500">✓</span>
-                            <span>Battery jump starts</span>
+                            <span>Transport of delicate & sensitive items (e.g., models, artwork)</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="text-red-500">✓</span>
-                            <span>Flat tire changes</span>
+                            <span>Light machinery & construction equipment hauling</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="text-red-500">✓</span>
-                            <span>Fuel delivery & lockouts</span>
+                            <span>Secure strapping and flatbed stabilization</span>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
