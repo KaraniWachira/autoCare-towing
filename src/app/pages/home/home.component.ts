@@ -3,8 +3,11 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 import { CloudinaryService } from '../../services/cloudinary.service';
+
+import { TestimonialsService } from '../../services/testimonials.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +15,8 @@ import { CloudinaryService } from '../../services/cloudinary.service';
   imports: [
     RouterLink,
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -22,6 +26,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 
   private cloudinaryService = inject(CloudinaryService);
+  private testimonialsService = inject(TestimonialsService);
   private sliderInterval: any;
 
   // Hero slider images - Public IDs extracted from Cloudinary
@@ -44,7 +49,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   currentHeroIndex = 0;
 
   // Work video from Cloudinary
-  // Replace 'your-video-public-id' with your actual Cloudinary video public ID
   workVideos = [
     {
       publicId: 'your-video-public-id',  // Replace with your actual Cloudinary video public ID
@@ -55,44 +59,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   ];
 
-  reviews = [
-    {
-      id: 1,
-      name: 'Sarah Johnson',
-      text: 'Absolutely a lifesaver! My car broke down in the middle of nowhere at 2 AM. The driver arrived within 30 minutes and was incredibly professional.',
-      date: 'Oct 15, 2023'
-    },
-    {
-      id: 2,
-      name: 'Mike Williams',
-      text: 'Great service for heavy duty towing. They handled our construction equipment with care and expertise. Highly recommended!',
-      date: 'Nov 02, 2023'
-    },
-    {
-      id: 3,
-      name: 'Emily Davis',
-      text: 'Fast, friendly, and affordable. The flat tire service was quick and got me back on the road in no time.',
-      date: 'Nov 20, 2023'
-    },
-    {
-      id: 4,
-      name: 'David Brown',
-      text: 'I was locked out of my car and they came to the rescue. The technician was polite and opened the door without any damage.',
-      date: 'Dec 05, 2023'
-    },
-    {
-      id: 5,
-      name: 'Jessica Wilson',
-      text: 'Professional team. I used their long-distance towing service and my car arrived safely. Communication was excellent throughout.',
-      date: 'Dec 12, 2023'
-    },
-    {
-      id: 6,
-      name: 'Robert Miller',
-      text: 'Best towing company in town. Reliable and fair pricing. I keep their number saved just in case.',
-      date: 'Jan 08, 2024'
-    }
-  ];
+  reviews = this.testimonialsService.reviews;
 
   ngOnInit() {
     // Start the automatic slider

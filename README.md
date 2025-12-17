@@ -1,59 +1,44 @@
-# AutocareTowing
+# Autocare Towing
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
+Professional towing and breakdown services application built with Angular 19 and Tailwind CSS.
 
-## Development server
+## Features
 
-To start a local development server, run:
+-   **Modern UI/UX**: Responsive design with a dark theme and smooth animations.
+-   **Services Showcase**: Detailed information about towing services (Flatbed, Car Hauling, etc.).
+-   **Gallery**: Visual showcase of the fleet and past work.
+-   **Contact Integration**: Easy access to phone and email for emergency services.
+-   **Performance**: Optimized with Angular's latest features and Tailwind CSS for minimal bundle size.
 
-```bash
-ng serve
-```
+## Tech Stack
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+-   **Framework**: Angular 19
+-   **Styling**: Tailwind CSS
+-   **Icons**: Angular Material Icons
+-   **State Management**: Angular Signals (Native)
+-   **Asset Management**: Cloudinary Integration
 
-## Code scaffolding
+## Setup & Installation
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1.  **Clone the repository**
+    ```bash
+    git clone <repository-url>
+    cd autocare-towing
+    ```
 
-```bash
-ng generate component component-name
-```
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+3.  **Start the development server**
+    ```bash
+    npm start
+    ```
+    Navigate to `http://localhost:4200/`.
 
-```bash
-ng generate --help
-```
+## Scripts
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+-   `npm start`: Runs the app in development mode.
+-   `npm run build`: Builds the app for production.
+-   `npm test`: Runs unit tests.
