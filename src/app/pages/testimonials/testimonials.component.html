@@ -8,7 +8,7 @@
 
         <!-- Reviews Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            @for (review of reviews; track review.id) {
+            @for (review of reviews(); track review.id) {
             <div
                 class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700 hover:border-red-600 transition-colors">
                 <div class="flex items-center gap-4 mb-6">

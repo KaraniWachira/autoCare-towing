@@ -10,19 +10,19 @@
 
         <!-- Content Layer -->
         <div class="text-center px-4 relative z-10">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up">
+            <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 animate-fade-in-up">
                 <span class="text-red-600">FAST.</span> RELIABLE. <span class="text-red-600">SAFE.</span>
             </h1>
-            <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-2xl mx-auto">
+            <p class="text-sm md:text-lg lg:text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
                 Professional flatbed towing services available 24/7.
             </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
                 <a routerLink="/request-service"
-                    class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+                    class="bg-red-600 hover:bg-red-700 text-white px-4 py-1 md:px-8 md:py-4 rounded-full font-bold text-xs md:text-lg transition-transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
                     <span>🚨</span> REQUEST SERVICE
                 </a>
                 <a href="tel:+254 791-078-466"
-                    class="bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+                    class="bg-white hover:bg-gray-100 text-gray-900 px-4 py-1 md:px-8 md:py-4 rounded-full font-bold text-xs md:text-lg transition-transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
                     <span>📞</span>+254 791-078-466
                 </a>
             </div>
@@ -65,7 +65,8 @@
                 class="bg-gray-800 rounded-xl p-8 hover:bg-gray-750 transition-colors border border-gray-700 hover:border-red-600 group">
                 <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">🚛</div>
                 <h3 class="text-2xl font-bold mb-4">Flatbed Towing</h3>
-                <p class="text-gray-400">Safe and secure transport with no-wheel-contact. Perfect for luxury vehicles,
+                <p class="text-gray-400">Safe and secure transport with no-wheel-contact. Perfect for
+                    luxury vehicles,
                     classic cars, and motorcycles.</p>
             </div>
 
@@ -74,7 +75,8 @@
                 class="bg-gray-800 rounded-xl p-8 hover:bg-gray-750 transition-colors border border-gray-700 hover:border-red-600 group">
                 <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">🚗</div>
                 <h3 class="text-2xl font-bold mb-4">Car Hauling</h3>
-                <p class="text-gray-400">Professional vehicle transport for local and long-distance relocations. Safe
+                <p class="text-gray-400">Professional vehicle transport for local and long-distance
+                    relocations. Safe
                     handling guaranteed.</p>
             </div>
 
@@ -82,7 +84,8 @@
             <div
                 class="bg-gray-800 rounded-xl p-8 hover:bg-gray-750 transition-colors border border-gray-700 hover:border-red-600 group">
                 <div class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">🔧</div>
-                <h3 class="text-2xl font-bold mb-4">Specialized Logistics & Equipment Transport</h3>
+                <h3 class="text-2xl font-bold mb-4">Specialized Logistics & Equipment
+                    Transport</h3>
                 <p class="text-gray-400">
                     Handling high-value, sensitive, and non-standard cargo that requires
                     precision, stabilization, and damage-free flatbed delivery transport.
@@ -109,7 +112,8 @@
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4"><span class="border-b-4 border-red-600 pb-2">SEE OUR
                         WORK</span></h2>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto">Watch our professional flatbed towing services in
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">Watch our professional flatbed
+                    towing services in
                     action</p>
             </div>
 
@@ -151,7 +155,8 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">Customer Reviews</h2>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto">See what our satisfied customers have to say about
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">See what our satisfied customers
+                    have to say about
                     our
                     towing and breakdown services.</p>
             </div>
@@ -168,7 +173,7 @@
                 <div #reviewsContainer class="overflow-x-auto pb-4 scroll-smooth"
                     style="scrollbar-width: none; -ms-overflow-style: none;">
                     <div class="flex gap-8 mb-16" style="width: max-content;">
-                        @for (review of reviews; track review.id) {
+                        @for (review of reviews(); track review.id) {
                         <div class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700 hover:border-red-600 transition-colors"
                             style="width: 400px; flex-shrink: 0;">
                             <div class="flex items-center gap-4 mb-6">
